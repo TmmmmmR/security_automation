@@ -9,11 +9,9 @@ Presentation slides: ADD LINK TO .pdf
 
 This guide will take you through the steps necessary to build a security automation framework by converting security tooling into micro services, and using Kubernetes as an orchestration engine in conjection with your favorite CI/CD tool.
 
-![alt text](docs/img/architecture.jpg)
+![alt text](docs/img/architecture.png)
 
 The framework also include an easy to deploy AppSec SIEM for tracking/monitoring the continuous scanning activitie along with the developement lifecycle.
-
-![alt text](docs/img/dashboard.jpg)
 
 For the sake of demonstration, this guidline will us [Google Container Engine](https://cloud.google.com/container-engine/) and [Jenkins](https://jenkins.io) to orchestrate the security scanning activity.
 
