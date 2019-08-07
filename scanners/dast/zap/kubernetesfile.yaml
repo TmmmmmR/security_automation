@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: zap1
+  labels:
+    app: web
+spec:
+  containers:
+    - name: zap
+      image: company/owasp-zap
+      env: 
+      - name: target #Get from vault 
+        valueFrom:
+          secretKeyRef:
+            name: owasp-zap-secrets
+            key: target
+      - name: dojo-url #Get from vault 
+        valueFrom:
+          secretKeyRef:
+            name: owasp-zap-secrets
+            key: dojo-url
+      - name: dojo-api-key #Get from vault 
+        valueFrom:
+          secretKeyRef:
+            name: owasp-zap-secrets
+            key: dojo-api-key
+      - name: dojo-engagement-id #Get from vault 
+        valueFrom:
+          secretKeyRef:
+            name: owasp-zap-secrets
+            key: dojo-engagement-id
+      command: ["zap-baseline.py"]
+      args: ["-t", "$(target)", "-U", "$(dojo-url)", "-A", "$(dojo-api-key)", "-I", "$(dojo-engagement-id)"]
+  restartPolicy: Never

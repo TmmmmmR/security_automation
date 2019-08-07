@@ -1,0 +1,8 @@
+# This file is where you define your pipelines. You can define multiple.
+# For more information on multiple pipelines, see the documentation:
+#   https://www.elastic.co/guide/en/logstash/current/multiple-pipelines.html
+
+- pipeline.id: checkmarx
+  path.config: "/usr/share/logstash/pipeline/checkmarx.conf"
+- pipeline.id: zap
+  path.config: "/usr/share/logstash/pipeline/zap.conf"

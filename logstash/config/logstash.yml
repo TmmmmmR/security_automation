@@ -1,0 +1,21 @@
+---
+## Default Logstash configuration from logstash-docker.
+## from https://github.com/elastic/logstash-docker/blob/master/build/logstash/config/logstash-full.yml
+#
+http.host: "0.0.0.0"
+xpack.monitoring.elasticsearch.hosts: [ "http://elasticsearch:9200" ]
+
+# path.config: /usr/share/logstash/pipeline/*.config
+
+## X-Pack security credentials
+#
+xpack.monitoring.elasticsearch.username: elastic
+xpack.monitoring.elasticsearch.password: changeme
+
+queue.drain: true
+queue.type: persisted
+
+xpack.monitoring.enabled: false
+
+config.reload.automatic: true
+
