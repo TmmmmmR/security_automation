@@ -4,14 +4,15 @@
 
 Initial public release at BsidesLv 2018:
 
-Video: TO ADD
-Presentation slides: ADD LINK TO .pdf
+Video: https://www.youtube.com/watch?v=Lxk2N4dqVnI&feature=youtu.be&t=32094
 
-This guide will take you through the steps necessary to build a security automation framework by converting security tooling into micro services, and using Kubernetes as an orchestration engine in conjection with your favorite CI/CD tool.
+Presentation slides: [bsideslv_19_prensentation_vf.pdf](docs/pdf/bsideslv_19_prensentation_vf.pdf)
+
+This guide will take you through the steps necessary to build a security automation framework by converting security tooling into micro services, and using Kubernetes as an orchestration engine in conjunction with your favorite CI/CD tool.
 
 ![alt text](docs/img/architecture.png)
 
-The framework also include an easy to deploy AppSec SIEM for tracking/monitoring the continuous scanning activitie along with the developement lifecycle.
+The framework also includes an easy to deploy AppSec SIEM for tracking/monitoring the continuous scanning activity along with the development lifecycle.
 
 For the sake of demonstration, this guidline will us [Google Container Engine](https://cloud.google.com/container-engine/) and [Jenkins](https://jenkins.io) to orchestrate the security scanning activity.
 
@@ -35,7 +36,7 @@ Clone the lab repository in your cloud shell using the following link :
 </p>
 
 ### Create a Kubernetes Cluster
-You'll use Google Container Engine to create and manage your Kubernetes cluster. Provision the cluster with `gcloud`:
+We will use Google Container Engine to create and manage your Kubernetes cluster. Provision the cluster with `gcloud`:
 
 ```shell
 gcloud container clusters create jenkins-cd \
@@ -45,6 +46,7 @@ gcloud container clusters create jenkins-cd \
 ```
 
 Once that operation completes download the credentials for your cluster using the [gcloud CLI](https://cloud.google.com/sdk/):
+
 ```shell
 gcloud container clusters get-credentials jenkins-cd
 Fetching cluster endpoint and auth data.
@@ -65,7 +67,7 @@ We will use a custom [values file](jenkins/values.yaml) to add the GCP specific 
 1. Use the Helm CLI to deploy the chart with your configuration set.
 
 ```shell
-    helm install -n cd stable/jenkins -f jenkins/values.yaml --version 1.2.2 --wait
+    helm install -n cd stable/jenkins -f jenkins/values.yaml --wait
 ```
 
 1. Once that command completes ensure the Jenkins pod goes to the `Running` state and the container is in the `READY` state:
@@ -76,21 +78,21 @@ We will use a custom [values file](jenkins/values.yaml) to add the GCP specific 
     cd-jenkins-7c786475dd-vbhg4   1/1       Running   0          1m
 ```
     
-1. Configure the Jenkins service account to be able to deploy to the cluster. 
+2. Configure the Jenkins service account to be able to deploy to the cluster. 
 
 ```shell
     kubectl create clusterrolebinding jenkins-deploy --clusterrole=cluster-admin --serviceaccount=default:cd-jenkins
     clusterrolebinding.rbac.authorization.k8s.io/jenkins-deploy created
 ```
 
-1. Run the following command to setup port forwarding to the Jenkins UI from the Cloud Shell
+3. Run the following command to setup port forwarding to the Jenkins UI from the Cloud Shell
 
 ```shell
     export POD_NAME=$(kubectl get pods -l "component=cd-jenkins-master" -o jsonpath="{.items[0].metadata.name}")
     kubectl port-forward $POD_NAME 8080:8080 >> /dev/null &
 ```
 
-1. Create a persitance volume to share scanning results between containers and the [ELK stack](http://insertlinkhere).
+4. Create a persitance volume to share scanning results between containers and the [ELK stack](http://insertlinkhere).
 
 ```shell
     kubectl create -f jenkins/pv.yaml
@@ -104,7 +106,7 @@ We will use a custom [values file](jenkins/values.yaml) to add the GCP specific 
     printf $(kubectl get secret cd-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
 ```
 
-2. To get to the Jenkins user interface, click on the Web Preview button![](../docs/img/web-preview.png) in cloud shell, then click "Preview on port 8080" :
+2. To get to the Jenkins user interface, click on the Web Preview button in cloud shell, then click "Preview on port 8080" :
 
 ![](docs/img/preview-8080.png)
 
@@ -116,11 +118,11 @@ You should now be able to log in with username `admin` and your auto generated p
 
 If your security scanner doesn't include a vulnerability management system, or you are planning to use multiple tools, you can use [DefectDojo](https://github.com/DefectDojo/django-DefectDojo/blob/master/KUBERNETES.md) as a vulnerability correlation system.
 
-Once [installed](https://github.com/DefectDojo/django-DefectDojo/blob/master/KUBERNETES.md), generate an API token and configure it as a secret into Kubernetes (or Jenkins) in order to use it later to automaticly gather results after each security scan. 
+Once [installed](https://github.com/DefectDojo/django-DefectDojo/blob/master/KUBERNETES.md), generate an API token and configure it as a secret into Kubernetes (or Jenkins) in order to use it later to automatically gather results after each security scan. 
 
-## Convert your security scanners into a docker image 
+## Convert your security scanners to a docker image 
 
-This repo provide two examples of security scanners :
+This repo provides two examples of security scanners :
 
 - OWASP ZAP for Dynamic Analysis (open source)
 - Checkmarx for Static Analysis
@@ -194,12 +196,8 @@ This framework can be extended to support other security testing tools by follow
 
 ## References & previous work
 
-[ELK Stack](https://www.elastic.co/elk-stack)
-[VulnWhisperer](https://github.com/HASecuritySolutions/VulnWhisperer)
-[Building a security automation Framework - rico]()
-[secureCodeBox](https://github.com/secureCodeBox/secureCodeBox)
-[AppSecPipeline](https://github.com/aaronweaver/AppSecPipeline/)
-[]()
-[]()
-[]()
-
+- [ELK Stack](https://www.elastic.co/elk-stack)
+- [VulnWhisperer](https://github.com/HASecuritySolutions/VulnWhisperer)
+- [Building A Security Test Automation Framework by Riccardo Ten Cate](https://www.youtube.com/watch?v=xWe816PXll4)
+- [secureCodeBox](https://github.com/secureCodeBox/secureCodeBox)
+- [AppSecPipeline](https://github.com/aaronweaver/AppSecPipeline/)

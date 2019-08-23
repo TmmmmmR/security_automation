@@ -27,7 +27,7 @@ services:
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
       - ./logstash/config/pipelines.yml:/usr/share/logstash/config/pipelines.yml:ro
       - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
-      - ./reports:/tmp/
+      - ./reports:/opt/reports/
     ports:
       - "5000:5000"
       - "9600:9600"
@@ -54,29 +54,15 @@ services:
 
   kibana-config:
     image: alpine
-    container_name: kibana-config
     volumes:
-      - ./resources/elk6/init_kibana.sh:/opt/init_kibana.sh
-      - ./resources/elk6/kibana_APIonly.json:/opt/kibana_APIonly.json
-      - ./resources/elk6/logstash-vulnwhisperer-template.json:/opt/index-template.json
-    command: sh -c "apk add --no-cache curl bash && chmod +x /opt/init_kibana.sh && chmod +r /opt/kibana_APIonly.json && cd /opt/ && /bin/bash /opt/init_kibana.sh" # /opt/kibana_APIonly.json"
-
-  jenkins:
-    build:
-      context: jenkins/
-    privileged: true
-    user: root
-    ports:
-      - 8080:8080
-      - 50000:50000
-    container_name: jenkins
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock # This way Jenkins docker can start new sibling containers 
+      - ./kibana/init_kibana.sh:/opt/init_kibana.sh
+      - ./kibana/dashboard.json:/opt/dashboard.json
+    command: sh -c "apk add --no-cache curl bash && chmod +x /opt/init_kibana.sh && chmod +r /opt/dashboard.json && cd /opt/ && /bin/bash /opt/init_kibana.sh"
     networks:
       - elk
-
-
-
+    depends_on:
+      - elasticsearch
+      - kibana
 
 networks:
 
