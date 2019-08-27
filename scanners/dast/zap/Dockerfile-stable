@@ -2,6 +2,14 @@
 FROM ubuntu:16.04
 LABEL maintainer="psiinon@gmail.com"
 
+ARG COMPANY_PROXY
+
+ENV HTTP_PROXY="$COMPANY_PROXY"
+ENV HTTPS_PROXY="$COMPANY_PROXY"
+ENV http_proxy="$COMPANY_PROXY"
+ENV https_proxy="$COMPANY_PROXY"
+
+
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && apt-get install -q -y --fix-missing \
@@ -54,6 +62,8 @@ RUN curl -s https://raw.githubusercontent.com/zaproxy/zap-admin/master/ZapVersio
 	# Accept ZAP license
 	touch AcceptedLicense
 
+# Install HelpAddonsExportreportExportreport
+RUN wget https://github.com/zaproxy/zap-extensions/releases/download/2.7/exportreport-alpha-5.zap -P /zap/plugin
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 ENV PATH $JAVA_HOME/bin:/zap/:$PATH
@@ -66,6 +76,11 @@ ENV HOME /home/zap/
 COPY zap* /zap/
 COPY webswing.config /zap/webswing/
 COPY policies /home/zap/.ZAP/policies/
+
+# Enbale DEBUG                            
+COPY log4j.properties /home/zap/.ZAP/
+
+
 # The scan script loads the scripts from dev home dir.
 COPY scripts /home/zap/.ZAP_D/scripts/
 COPY .xinitrc /home/zap/
@@ -80,6 +95,6 @@ RUN chown zap:zap /zap/* && \
 	chmod a+x /home/zap/.xinitrc
 
 #Change back to zap at the end
-USER root
+USER zap
 
 HEALTHCHECK --retries=5 --interval=5s CMD zap-cli status
