@@ -50,6 +50,7 @@ RUN mkdir /home/zap/.vnc
 
 # Download and expand the latest stable release 
 RUN curl -s https://raw.githubusercontent.com/zaproxy/zap-admin/master/ZapVersions.xml | xmlstarlet sel -t -v //url |grep -i Linux | wget -nv --content-disposition -i - -O - | tar zxv && \
+#RUN wget -N https://github.com/zaproxy/zaproxy/releases/download/2.7.0/ZAP_2.7.0_Linux.tar.gz; tar zxvf ZAP_2.7.0_Linux.tar.gz && \
 	cp -R ZAP*/* . &&  \
 	rm -R ZAP* && \
 	# Setup Webswing
@@ -62,8 +63,8 @@ RUN curl -s https://raw.githubusercontent.com/zaproxy/zap-admin/master/ZapVersio
 	# Accept ZAP license
 	touch AcceptedLicense
 
-# Install HelpAddonsExportreportExportreport
-RUN wget https://github.com/zaproxy/zap-extensions/releases/download/2.7/exportreport-alpha-5.zap -P /zap/plugin
+# Install HelpAddonsExportreport
+# RUN wget https://github.com/zaproxy/zap-extensions/releases/download/2.7/exportreport-alpha-5.zap -P /zap/plugin
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 ENV PATH $JAVA_HOME/bin:/zap/:$PATH

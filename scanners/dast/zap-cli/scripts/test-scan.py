@@ -7,7 +7,7 @@ apikey = 'tmr' # Change to match the API key set in ZAP, or use None if the API 
 zap = ZAP(apikey=apikey, proxies = {'http': 'http://localhost:8080', 'https': 'http://localhost:8080'})
 #setting the local ZAP instance that is open on your local system
 
-target_site = 'http://demo.testfire.net'
+target_site = 'http://example.com'
 
 zap.urlopen(target_site)
 #opens up the the target site. Makes a single GET request
@@ -22,3 +22,9 @@ print("Spider ID for the initiated spider scan is: {0}".format(spider_id))
 while int(zap.spider.status(spider_id)) < 100:
     print("Current Status of ZAP Spider: {0}%".format(zap.spider.status(spider_id)))
     time.sleep(4)
+
+active_scan_id = zap.ascan.scan(target_site)
+
+while int(zap.ascan.status(active_scan_id)) < 100:
+    print("Current Status of ZAP Active Scan: {0}%".format(zap.ascan.status(active_scan_id)))
+    time.sleep(10)

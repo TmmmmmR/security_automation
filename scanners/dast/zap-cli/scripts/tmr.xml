@@ -1,0 +1,2871 @@
+<?xml version="1.0" encoding="UTF-8"?><Report>
+<Title>Vulnerability Report for Amundi Suite</Title>
+<For>RSI</For>
+<By>Abdessamad TEMMAR</By>
+<ScanDate>January 8 2018</ScanDate>
+<ScanVersion>v1</ScanVersion>
+<ReportDate>January 8 2018</ReportDate>
+<ReportVersion>v1</ReportVersion>
+<Desc>Amundi Suite Scan Report</Desc>
+<Sites>
+<Host>www.example.com</Host>
+<Name>http://www.example.com</Name>
+<Port>80</Port>
+<SSL>false</SSL>
+<Alerts>
+<AlertItem>
+<Alert>X-Frame-Options Header Not Set</Alert>
+<RiskCode>2</RiskCode>
+<PluginID>10020</PluginID>
+<RiskDesc>Medium</RiskDesc>
+<Desc>X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.</Desc>
+<Solution>Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. ALLOW-FROM allows specific websites to frame the web page in supported web browsers).</Solution>
+<Reference>http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx</Reference>
+<ItemCount>2</ItemCount>
+<Item>
+<URI>GET : http://www.example.com/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://www.example.com</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<CWEID>16</CWEID>
+<WASCID>15</WASCID>
+</AlertItem>
+<AlertItem>
+<Alert>Web Browser XSS Protection Not Enabled</Alert>
+<RiskCode>1</RiskCode>
+<PluginID>10016</PluginID>
+<RiskDesc>Low</RiskDesc>
+<Desc>Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server</Desc>
+<Solution>Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.</Solution>
+<Reference>https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet
+https://blog.veracode.com/2014/03/guidelines-for-setting-security-headers/</Reference>
+<ItemCount>4</ItemCount>
+<Item>
+<URI>GET : http://www.example.com/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://www.example.com/robots.txt</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://www.example.com/sitemap.xml</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://www.example.com</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<CWEID>933</CWEID>
+<WASCID>14</WASCID>
+</AlertItem>
+<AlertItem>
+<Alert>X-Content-Type-Options Header Missing</Alert>
+<RiskCode>1</RiskCode>
+<PluginID>10021</PluginID>
+<RiskDesc>Low</RiskDesc>
+<Desc>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</Desc>
+<Solution>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.
+If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</Solution>
+<Reference>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx
+https://www.owasp.org/index.php/List_of_useful_HTTP_headers</Reference>
+<ItemCount>2</ItemCount>
+<Item>
+<URI>GET : http://www.example.com/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://www.example.com</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<CWEID>16</CWEID>
+<WASCID>15</WASCID>
+</AlertItem>
+</Alerts>
+</Sites>
+<Sites>
+<Host>testphp.vulnweb.com</Host>
+<Name>http://testphp.vulnweb.com</Name>
+<Port>80</Port>
+<SSL>false</SSL>
+<Alerts>
+<AlertItem>
+<Alert>Cross Site Scripting (Reflected)</Alert>
+<RiskCode>3</RiskCode>
+<PluginID>40012</PluginID>
+<RiskDesc>High</RiskDesc>
+<Desc>Cross-site Scripting (XSS) is an attack technique that involves echoing attacker-supplied code into a user's browser instance. A browser instance can be a standard web browser client, or a browser object embedded in a software product such as the browser within WinAmp, an RSS reader, or an email client. The code itself is usually written in HTML/JavaScript, but may also extend to VBScript, ActiveX, Java, Flash, or any other browser-supported technology.
+When an attacker gets a user's browser to execute his/her code, the code will run within the security context (or zone) of the hosting web site. With this level of privilege, the code has the ability to read, modify and transmit any sensitive data accessible by the browser. A Cross-site Scripted user could have his/her account hijacked (cookie theft), their browser redirected to another location, or possibly shown fraudulent content delivered by the web site they are visiting. Cross-site Scripting attacks essentially compromise the trust relationship between a user and the web site. Applications utilizing browser object instances which load content from the file system may execute code under the local machine zone allowing for system compromise.
+
+There are three types of Cross-site Scripting attacks: non-persistent, persistent and DOM-based.
+Non-persistent attacks and DOM-based attacks require a user to either visit a specially crafted link laced with malicious code, or visit a malicious web page containing a web form, which when posted to the vulnerable site, will mount the attack. Using a malicious form will oftentimes take place when the vulnerable resource only accepts HTTP POST requests. In such a case, the form can be submitted automatically, without the victim's knowledge (e.g. by using JavaScript). Upon clicking on the malicious link or submitting the malicious form, the XSS payload will get echoed back and will get interpreted by the user's browser and execute. Another technique to send almost arbitrary requests (GET and POST) is by using an embedded client, such as Adobe Flash.
+Persistent attacks occur when the malicious code is submitted to a web site where it's stored for a period of time. Examples of an attacker's favorite targets often include message board posts, web mail messages, and web chat software. The unsuspecting user is not required to interact with any additional site/link (e.g. an attacker site or a malicious link sent via email), just simply view the web page containing the code.</Desc>
+<Solution>Phase: Architecture and Design
+Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.
+Examples of libraries and frameworks that make it easier to generate properly encoded output include Microsoft's Anti-XSS library, the OWASP ESAPI Encoding module, and Apache Wicket.
+
+Phases: Implementation; Architecture and Design
+Understand the context in which your data will be used and the encoding that will be expected. This is especially important when transmitting data between different components, or when generating outputs that can contain multiple encodings at the same time, such as web pages or multi-part mail messages. Study all expected communication protocols and data representations to determine the required encoding strategies.
+For any data that will be output to another web page, especially any data that was received from external inputs, use the appropriate encoding on all non-alphanumeric characters.
+Consult the XSS Prevention Cheat Sheet for more details on the types of encoding and escaping that are needed.
+
+Phase: Architecture and Design
+For any security checks that are performed on the client side, ensure that these checks are duplicated on the server side, in order to avoid CWE-602. Attackers can bypass the client-side checks by modifying values after the checks have been performed, or by changing the client to remove the client-side checks entirely. Then, these modified values would be submitted to the server.
+
+If available, use structured mechanisms that automatically enforce the separation between data and code. These mechanisms may be able to provide the relevant quoting, encoding, and validation automatically, instead of relying on the developer to provide this capability at every point where output is generated.
+
+Phase: Implementation
+For every web page that is generated, use and specify a character encoding such as ISO-8859-1 or UTF-8. When an encoding is not specified, the web browser may choose a different encoding by guessing which encoding is actually being used by the web page. This can cause the web browser to treat certain sequences as special, opening up the client to subtle XSS attacks. See CWE-116 for more mitigations related to encoding/escaping.
+
+To help mitigate XSS attacks against the user's session cookie, set the session cookie to be HttpOnly. In browsers that support the HttpOnly feature (such as more recent versions of Internet Explorer and Firefox), this attribute can prevent the user's session cookie from being accessible to malicious client-side scripts that use document.cookie. This is not a complete solution, since HttpOnly is not supported by all browsers. More importantly, XMLHTTPRequest and other powerful browser technologies provide read access to HTTP headers, including the Set-Cookie header in which the HttpOnly flag is set.
+
+Assume all input is malicious. Use an "accept known good" input validation strategy, i.e., use a whitelist of acceptable inputs that strictly conform to specifications. Reject any input that does not strictly conform to specifications, or transform it into something that does. Do not rely exclusively on looking for malicious or malformed inputs (i.e., do not rely on a blacklist). However, blacklists can be useful for detecting potential attacks or determining which inputs are so malformed that they should be rejected outright.
+
+When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency across related fields, and conformance to business rules. As an example of business rule logic, "boat" may be syntactically valid because it only contains alphanumeric characters, but it is not valid if you are expecting colors such as "red" or "blue."
+
+Ensure that you perform input validation at well-defined interfaces within the application. This will help protect the application even if a component is reused or moved elsewhere.</Solution>
+<Reference>http://projects.webappsec.org/Cross-Site-Scripting
+http://cwe.mitre.org/data/definitions/79.html</Reference>
+<ItemCount>14</ItemCount>
+<Item>
+<URI>POST : http://testphp.vulnweb.com/guestbook.php</URI>
+<Confidence>Medium</Confidence>
+<Param>name</Param>
+<Attack>&lt;/strong&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;strong&gt;</Attack>
+<Evidence>&lt;/strong&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;strong&gt;</Evidence>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>POST : http://testphp.vulnweb.com/guestbook.php</URI>
+<Confidence>Medium</Confidence>
+<Param>text</Param>
+<Attack>&lt;/td&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;td&gt;</Attack>
+<Evidence>&lt;/td&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;td&gt;</Evidence>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/hpp/?pp=javascript%3Aalert%281%29%3B</URI>
+<Confidence>Medium</Confidence>
+<Param>pp</Param>
+<Attack>javascript:alert(1);</Attack>
+<Evidence>javascript:alert(1);</Evidence>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/listproducts.php?artist=%3C%2Fdiv%3E%3Cscript%3Ealert%281%29%3B%3C%2Fscript%3E%3Cdiv%3E</URI>
+<Confidence>Medium</Confidence>
+<Param>artist</Param>
+<Attack>&lt;/div&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;div&gt;</Attack>
+<Evidence>&lt;/div&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;div&gt;</Evidence>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/listproducts.php?cat=%3C%2Fdiv%3E%3Cscript%3Ealert%281%29%3B%3C%2Fscript%3E%3Cdiv%3E</URI>
+<Confidence>Medium</Confidence>
+<Param>cat</Param>
+<Attack>&lt;/div&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;div&gt;</Attack>
+<Evidence>&lt;/div&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;div&gt;</Evidence>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>POST : http://testphp.vulnweb.com/search.php?test=query</URI>
+<Confidence>Medium</Confidence>
+<Param>searchFor</Param>
+<Attack>&lt;/h2&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;h2&gt;</Attack>
+<Evidence>&lt;/h2&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;h2&gt;</Evidence>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>POST : http://testphp.vulnweb.com/secured/newuser.php</URI>
+<Confidence>Medium</Confidence>
+<Param>uuname</Param>
+<Attack>&lt;/li&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;li&gt;</Attack>
+<Evidence>&lt;/li&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;li&gt;</Evidence>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>POST : http://testphp.vulnweb.com/secured/newuser.php</URI>
+<Confidence>Medium</Confidence>
+<Param>urname</Param>
+<Attack>&lt;/li&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;li&gt;</Attack>
+<Evidence>&lt;/li&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;li&gt;</Evidence>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>POST : http://testphp.vulnweb.com/secured/newuser.php</URI>
+<Confidence>Medium</Confidence>
+<Param>ucc</Param>
+<Attack>&lt;/li&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;li&gt;</Attack>
+<Evidence>&lt;/li&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;li&gt;</Evidence>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>POST : http://testphp.vulnweb.com/secured/newuser.php</URI>
+<Confidence>Medium</Confidence>
+<Param>uemail</Param>
+<Attack>&lt;/li&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;li&gt;</Attack>
+<Evidence>&lt;/li&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;li&gt;</Evidence>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>POST : http://testphp.vulnweb.com/secured/newuser.php</URI>
+<Confidence>Medium</Confidence>
+<Param>uphone</Param>
+<Attack>&lt;/li&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;li&gt;</Attack>
+<Evidence>&lt;/li&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;li&gt;</Evidence>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>POST : http://testphp.vulnweb.com/secured/newuser.php</URI>
+<Confidence>Medium</Confidence>
+<Param>uaddress</Param>
+<Attack>&lt;/li&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;li&gt;</Attack>
+<Evidence>&lt;/li&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;li&gt;</Evidence>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/showimage.php?file=%3Cscript%3Ealert%281%29%3B%3C%2Fscript%3E</URI>
+<Confidence>Low</Confidence>
+<Param>file</Param>
+<Attack>&lt;script&gt;alert(1);&lt;/script&gt;</Attack>
+<Evidence>&lt;script&gt;alert(1);&lt;/script&gt;</Evidence>
+<OtherInfo>Raised with LOW confidence as the Content-Type is not HTML</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/showimage.php?file=%3Cscript%3Ealert%281%29%3B%3C%2Fscript%3E&amp;size=160</URI>
+<Confidence>Low</Confidence>
+<Param>file</Param>
+<Attack>&lt;script&gt;alert(1);&lt;/script&gt;</Attack>
+<Evidence>&lt;script&gt;alert(1);&lt;/script&gt;</Evidence>
+<OtherInfo>Raised with LOW confidence as the Content-Type is not HTML</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<CWEID>79</CWEID>
+<WASCID>8</WASCID>
+</AlertItem>
+<AlertItem>
+<Alert>Remote File Inclusion</Alert>
+<RiskCode>3</RiskCode>
+<PluginID>7</PluginID>
+<RiskDesc>High</RiskDesc>
+<Desc>Remote File Include (RFI) is an attack technique used to exploit "dynamic file include" mechanisms in web applications. When web applications take user input (URL, parameter value, etc.) and pass them into file include commands, the web application might be tricked into including remote files with malicious code.
+
+Almost all web application frameworks support file inclusion. File inclusion is mainly used for packaging common code into separate files that are later referenced by main application modules. When a web application references an include file, the code in this file may be executed implicitly or explicitly by calling specific procedures. If the choice of module to load is based on elements from the HTTP request, the web application might be vulnerable to RFI.
+An attacker can use RFI for:
+    * Running malicious code on the server: any code in the included malicious files will be run by the server. If the file include is not executed using some wrapper, code in include files is executed in the context of the server user. This could lead to a complete system compromise.
+    * Running malicious code on clients: the attacker's malicious code can manipulate the content of the response sent to the client. The attacker can embed malicious code in the response that will be run by the client (for example, Javascript to steal the client session cookies).
+
+PHP is particularly vulnerable to RFI attacks due to the extensive use of "file includes" in PHP programming and due to default server configurations that increase susceptibility to an RFI attack.</Desc>
+<Solution>Phase: Architecture and Design
+When the set of acceptable objects, such as filenames or URLs, is limited or known, create a mapping from a set of fixed input values (such as numeric IDs) to the actual filenames or URLs, and reject all other inputs.
+For example, ID 1 could map to "inbox.txt" and ID 2 could map to "profile.txt". Features such as the ESAPI AccessReferenceMap provide this capability.
+
+Phases: Architecture and Design; Operation
+Run your code in a "jail" or similar sandbox environment that enforces strict boundaries between the process and the operating system. This may effectively restrict which files can be accessed in a particular directory or which commands can be executed by your software.
+OS-level examples include the Unix chroot jail, AppArmor, and SELinux. In general, managed code may provide some protection. For example, java.io.FilePermission in the Java SecurityManager allows you to specify restrictions on file operations.
+This may not be a feasible solution, and it only limits the impact to the operating system; the rest of your application may still be subject to compromise.
+Be careful to avoid CWE-243 and other weaknesses related to jails.
+For PHP, the interpreter offers restrictions such as open basedir or safe mode which can make it more difficult for an attacker to escape out of the application. Also consider Suhosin, a hardened PHP extension, which includes various options that disable some of the more dangerous PHP features.
+
+Phase: Implementation
+Assume all input is malicious. Use an "accept known good" input validation strategy, i.e., use a whitelist of acceptable inputs that strictly conform to specifications. Reject any input that does not strictly conform to specifications, or transform it into something that does. Do not rely exclusively on looking for malicious or malformed inputs (i.e., do not rely on a blacklist). However, blacklists can be useful for detecting potential attacks or determining which inputs are so malformed that they should be rejected outright.
+When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency across related fields, and conformance to business rules. As an example of business rule logic, "boat" may be syntactically valid because it only contains alphanumeric characters, but it is not valid if you are expecting colors such as "red" or "blue."
+For filenames, use stringent whitelists that limit the character set to be used. If feasible, only allow a single "." character in the filename to avoid weaknesses such as CWE-23, and exclude directory separators such as "/" to avoid CWE-36. Use a whitelist of allowable file extensions, which will help to avoid CWE-434.
+
+Phases: Architecture and Design; Operation
+Store library, include, and utility files outside of the web document root, if possible. Otherwise, store them in a separate directory and use the web server's access control capabilities to prevent attackers from directly requesting them. One common practice is to define a fixed constant in each calling program, then check for the existence of the constant in the library/include file; if the constant does not exist, then the file was directly requested, and it can exit immediately.
+This significantly reduces the chance of an attacker being able to bypass any protection mechanisms that are in the base program but not in the include files. It will also reduce your attack surface.
+
+Phases: Architecture and Design; Implementation
+Understand all the potential areas where untrusted inputs can enter your software: parameters or arguments, cookies, anything read from the network, environment variables, reverse DNS lookups, query results, request headers, URL components, e-mail, files, databases, and any external systems that provide data to the application. Remember that such inputs may be obtained indirectly through API calls.
+Many file inclusion problems occur because the programmer assumed that certain inputs could not be modified, especially for cookies and URL components.</Solution>
+<Reference>http://projects.webappsec.org/Remote-File-Inclusion
+http://cwe.mitre.org/data/definitions/98.html</Reference>
+<ItemCount>2</ItemCount>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/showimage.php?file=http%3A%2F%2Fwww.google.com%2F</URI>
+<Confidence>Medium</Confidence>
+<Param>file</Param>
+<Attack>http://www.google.com/</Attack>
+<Evidence>&lt;title&gt;Google&lt;/title&gt;</Evidence>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/showimage.php?file=http%3A%2F%2Fwww.google.com&amp;size=160</URI>
+<Confidence>Medium</Confidence>
+<Param>file</Param>
+<Attack>http://www.google.com</Attack>
+<Evidence>&lt;title&gt;Google&lt;/title&gt;</Evidence>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<CWEID>98</CWEID>
+<WASCID>5</WASCID>
+</AlertItem>
+<AlertItem>
+<Alert>SQL Injection</Alert>
+<RiskCode>3</RiskCode>
+<PluginID>40018</PluginID>
+<RiskDesc>High</RiskDesc>
+<Desc>SQL injection may be possible.</Desc>
+<Solution>Do not trust client side input, even if there is client side validation in place.  
+In general, type check all data on the server side.
+If the application uses JDBC, use PreparedStatement or CallableStatement, with parameters passed by '?'
+If the application uses ASP, use ADO Command Objects with strong type checking and parameterized queries.
+If database Stored Procedures can be used, use them.
+Do *not* concatenate strings into queries in the stored procedure, or use 'exec', 'exec immediate', or equivalent functionality!
+Do not create dynamic SQL queries using simple string concatenation.
+Escape all data received from the client.
+Apply a 'whitelist' of allowed characters, or a 'blacklist' of disallowed characters in user input.
+Apply the principle of least privilege by using the least privileged database user possible.
+In particular, avoid using the 'sa' or 'db-owner' database users. This does not eliminate SQL injection, but minimizes its impact.
+Grant the minimum database access that is necessary for the application.</Solution>
+<Reference>https://www.owasp.org/index.php/Top_10_2010-A1
+https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet</Reference>
+<ItemCount>4</ItemCount>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/artists.php?artist=5-2</URI>
+<Confidence>Medium</Confidence>
+<Param>artist</Param>
+<Attack>5-2</Attack>
+<Evidence/>
+<OtherInfo>The original page results were successfully replicated using the expression [5-2] as the parameter value
+The parameter value being modified was stripped from the HTML output for the purposes of the comparison</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>POST : http://testphp.vulnweb.com/cart.php</URI>
+<Confidence>Medium</Confidence>
+<Param>addcart</Param>
+<Attack>8-2</Attack>
+<Evidence/>
+<OtherInfo>The original page results were successfully replicated using the expression [8-2] as the parameter value
+The parameter value being modified was stripped from the HTML output for the purposes of the comparison</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/listproducts.php?artist=3-2</URI>
+<Confidence>Medium</Confidence>
+<Param>artist</Param>
+<Attack>3-2</Attack>
+<Evidence/>
+<OtherInfo>The original page results were successfully replicated using the expression [3-2] as the parameter value
+The parameter value being modified was stripped from the HTML output for the purposes of the comparison</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/product.php?pic=8-2</URI>
+<Confidence>Medium</Confidence>
+<Param>pic</Param>
+<Attack>8-2</Attack>
+<Evidence/>
+<OtherInfo>The original page results were successfully replicated using the expression [8-2] as the parameter value
+The parameter value being modified was stripped from the HTML output for the purposes of the comparison</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<CWEID>89</CWEID>
+<WASCID>19</WASCID>
+</AlertItem>
+<AlertItem>
+<Alert>X-Frame-Options Header Not Set</Alert>
+<RiskCode>2</RiskCode>
+<PluginID>10020</PluginID>
+<RiskDesc>Medium</RiskDesc>
+<Desc>X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.</Desc>
+<Solution>Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. ALLOW-FROM allows specific websites to frame the web page in supported web browsers).</Solution>
+<Reference>http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx</Reference>
+<ItemCount>44</ItemCount>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/categories.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/index.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/artists.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/disclaimer.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/cart.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/guestbook.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/login.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/AJAX/index.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/hpp/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/listproducts.php?cat=1</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>POST : http://testphp.vulnweb.com/search.php?test=query</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/listproducts.php?cat=2</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/listproducts.php?cat=3</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/listproducts.php?cat=4</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/artists.php?artist=1</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/artists.php?artist=2</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/artists.php?artist=3</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>POST : http://testphp.vulnweb.com/guestbook.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/signup.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/Details/network-attached-storage-dlink/1/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/Details/web-camera-a4tech/2/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/hpp/?pp=12</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/Details/color-printer/3/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/product.php?pic=1</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/product.php?pic=2</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/product.php?pic=3</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/product.php?pic=4</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/product.php?pic=5</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/product.php?pic=7</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/product.php?pic=6</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/listproducts.php?artist=2</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/listproducts.php?artist=3</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/listproducts.php?artist=1</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>POST : http://testphp.vulnweb.com/secured/newuser.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/BuyProduct-1/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/RateProduct-1.html</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/BuyProduct-2/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/RateProduct-2.html</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/BuyProduct-3/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/RateProduct-3.html</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>POST : http://testphp.vulnweb.com/cart.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Frame-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<CWEID>16</CWEID>
+<WASCID>15</WASCID>
+</AlertItem>
+<AlertItem>
+<Alert>Password Autocomplete in Browser</Alert>
+<RiskCode>1</RiskCode>
+<PluginID>10012</PluginID>
+<RiskDesc>Low</RiskDesc>
+<Desc>The AUTOCOMPLETE attribute is not disabled on an HTML FORM/INPUT element containing password type input.  Passwords may be stored in browsers and retrieved.</Desc>
+<Solution>Turn off the AUTOCOMPLETE attribute in forms or individual input elements containing password inputs by using AUTOCOMPLETE='OFF'.</Solution>
+<Reference>http://www.w3schools.com/tags/att_input_autocomplete.asp
+https://msdn.microsoft.com/en-us/library/ms533486%28v=vs.85%29.aspx</Reference>
+<ItemCount>3</ItemCount>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/login.php</URI>
+<Confidence>Medium</Confidence>
+<Param>pass</Param>
+<Attack/>
+<Evidence>&lt;input name="pass" type="password" size="20" style="width:120px;"&gt;</Evidence>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/signup.php</URI>
+<Confidence>Medium</Confidence>
+<Param>upass</Param>
+<Attack/>
+<Evidence>&lt;input type="password" name="upass" style="width:200px"&gt;</Evidence>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/signup.php</URI>
+<Confidence>Medium</Confidence>
+<Param>upass2</Param>
+<Attack/>
+<Evidence>&lt;input type="password" name="upass2" style="width:200px"&gt;</Evidence>
+<OtherInfo/>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<CWEID>525</CWEID>
+<WASCID>15</WASCID>
+</AlertItem>
+<AlertItem>
+<Alert>Web Browser XSS Protection Not Enabled</Alert>
+<RiskCode>1</RiskCode>
+<PluginID>10016</PluginID>
+<RiskDesc>Low</RiskDesc>
+<Desc>Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server</Desc>
+<Solution>Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.</Solution>
+<Reference>https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet
+https://blog.veracode.com/2014/03/guidelines-for-setting-security-headers/</Reference>
+<ItemCount>47</ItemCount>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/robots.txt</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/sitemap.xml</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/categories.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/index.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/artists.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/disclaimer.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/cart.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/guestbook.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/login.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/AJAX/index.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/privacy.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/hpp/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/listproducts.php?cat=1</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>POST : http://testphp.vulnweb.com/search.php?test=query</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/listproducts.php?cat=2</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/listproducts.php?cat=3</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/listproducts.php?cat=4</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/artists.php?artist=1</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/artists.php?artist=2</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/artists.php?artist=3</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>POST : http://testphp.vulnweb.com/guestbook.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/signup.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/Details/network-attached-storage-dlink/1/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/Details/web-camera-a4tech/2/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/hpp/?pp=12</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/Details/color-printer/3/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/product.php?pic=1</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/product.php?pic=2</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/product.php?pic=3</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/product.php?pic=4</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/product.php?pic=5</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/product.php?pic=7</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/product.php?pic=6</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/listproducts.php?artist=2</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/listproducts.php?artist=3</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/listproducts.php?artist=1</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>POST : http://testphp.vulnweb.com/secured/newuser.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/BuyProduct-1/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/RateProduct-1.html</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/BuyProduct-2/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/RateProduct-2.html</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/BuyProduct-3/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/RateProduct-3.html</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>POST : http://testphp.vulnweb.com/cart.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-XSS-Protection</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: 
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=http://www.example.com/xss
+The following values would disable it:
+X-XSS-Protection: 0
+The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).
+Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<CWEID>933</CWEID>
+<WASCID>14</WASCID>
+</AlertItem>
+<AlertItem>
+<Alert>X-Content-Type-Options Header Missing</Alert>
+<RiskCode>1</RiskCode>
+<PluginID>10021</PluginID>
+<RiskDesc>Low</RiskDesc>
+<Desc>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</Desc>
+<Solution>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.
+If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</Solution>
+<Reference>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx
+https://www.owasp.org/index.php/List_of_useful_HTTP_headers</Reference>
+<ItemCount>67</ItemCount>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/categories.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/index.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/artists.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/disclaimer.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/cart.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/guestbook.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/login.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/AJAX/index.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/hpp/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/images/logo.gif</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/style.css</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/listproducts.php?cat=1</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>POST : http://testphp.vulnweb.com/search.php?test=query</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/listproducts.php?cat=2</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/listproducts.php?cat=3</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/listproducts.php?cat=4</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/artists.php?artist=1</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/artists.php?artist=2</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/images/remark.gif</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/artists.php?artist=3</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>POST : http://testphp.vulnweb.com/guestbook.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/signup.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/AJAX/styles.css</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/showimage.php?file='%20+%20pict.item(0).firstChild.nodeValue%20+%20'</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/Details/network-attached-storage-dlink/1/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/Details/web-camera-a4tech/2/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/hpp/?pp=12</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/images/1.jpg</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/Details/color-printer/3/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/images/2.jpg</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/product.php?pic=1</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/images/3.jpg</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/showimage.php?file=./pictures/1.jpg</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/product.php?pic=2</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/showimage.php?file=./pictures/2.jpg</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/product.php?pic=3</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/showimage.php?file=./pictures/3.jpg</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/product.php?pic=4</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/showimage.php?file=./pictures/4.jpg</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/product.php?pic=5</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/product.php?pic=7</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/showimage.php?file=./pictures/5.jpg</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/showimage.php?file=./pictures/7.jpg</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/showimage.php?file=./pictures/2.jpg&amp;size=160</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/showimage.php?file=./pictures/1.jpg&amp;size=160</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/showimage.php?file=./pictures/3.jpg&amp;size=160</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/showimage.php?file=./pictures/4.jpg&amp;size=160</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/showimage.php?file=./pictures/5.jpg&amp;size=160</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/showimage.php?file=./pictures/7.jpg&amp;size=160</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/product.php?pic=6</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/showimage.php?file=./pictures/6.jpg</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/listproducts.php?artist=2</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/showimage.php?file=./pictures/6.jpg&amp;size=160</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/listproducts.php?artist=3</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/listproducts.php?artist=1</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>POST : http://testphp.vulnweb.com/secured/newuser.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/BuyProduct-1/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/RateProduct-1.html</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/BuyProduct-2/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/RateProduct-2.html</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/BuyProduct-3/</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/Mod_Rewrite_Shop/RateProduct-3.html</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>POST : http://testphp.vulnweb.com/cart.php</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<Item>
+<URI>GET : http://testphp.vulnweb.com/secured/style.css</URI>
+<Confidence>Medium</Confidence>
+<Param>X-Content-Type-Options</Param>
+<Attack/>
+<Evidence/>
+<OtherInfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scanner will not alert on client or server error responses.</OtherInfo>
+<RequestHeader/>
+<RequestBody/>
+<ResponseHeader/>
+<ResponseBody/>
+</Item>
+<CWEID>16</CWEID>
+<WASCID>15</WASCID>
+</AlertItem>
+</Alerts>
+</Sites>
+</Report>
