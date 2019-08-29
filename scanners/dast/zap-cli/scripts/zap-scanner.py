@@ -61,7 +61,8 @@ def kill_zap():
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
         parser.add_argument('--url', help='Application URL', required=True)
-        parser.add_argument('--api', help='OWASP ZAP API Token', required=True)
+        parser.add_argument('--token', help='OWASP ZAP API Token', required=True)
+        parser.add_argument('--scan_mode', help='OWASP ZAP Scanning mode', required=False, default="Light")
         parser.add_argument('--report_full_path', help='Full path of report', required=True)
         parser.add_argument('--report_export_format', help='Report format (HTML, JSON or XML)', required=True)
         args = parser.parse_args()
